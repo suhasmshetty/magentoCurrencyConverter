@@ -1,0 +1,72 @@
+<?php
+/**
+ * Copyright © Suhas. All rights reserved.
+ *
+ * @var \Suhas\CurrencyConverter\Block\Converter $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$jsonConfig = $block->getJsonConfig();
+?>
+<div class="currency-converter"
+     data-mage-init='{"Suhas_CurrencyConverter/js/converter": <?= /* @noEscape */ $jsonConfig ?>}'>
+
+    
+    <p class="currency-converter__intro">
+        <?= $escaper->escapeHtml(__('Select two currencies to see the current exchange rate and how it has moved over time.')) ?>
+    </p>
+
+    <div class="currency-converter__form">
+        <div class="currency-converter__field">
+            <label class="currency-converter__label" for="cc-amount">
+                <?= $escaper->escapeHtml(__('Amount')) ?>
+            </label>
+            <input type="number" id="cc-amount" class="currency-converter__input"
+                   data-role="amount" value="1" min="0" step="any"
+                   inputmode="decimal" autocomplete="off"/>
+        </div>
+
+        <div class="currency-converter__field">
+            <label class="currency-converter__label" for="cc-from">
+                <?= $escaper->escapeHtml(__('From')) ?>
+            </label>
+            <select id="cc-from" class="currency-converter__select" data-role="from" disabled>
+                <option><?= $escaper->escapeHtml(__('Loading…')) ?></option>
+            </select>
+        </div>
+
+        <button type="button" class="currency-converter__swap" data-role="swap"
+                title="<?= $escaper->escapeHtmlAttr(__('Swap currencies')) ?>"
+                aria-label="<?= $escaper->escapeHtmlAttr(__('Swap currencies')) ?>" disabled>
+            <span aria-hidden="true">&#8646;</span>
+        </button>
+
+        <div class="currency-converter__field">
+            <label class="currency-converter__label" for="cc-to">
+                <?= $escaper->escapeHtml(__('To')) ?>
+            </label>
+            <select id="cc-to" class="currency-converter__select" data-role="to" disabled>
+                <option><?= $escaper->escapeHtml(__('Loading…')) ?></option>
+            </select>
+        </div>
+    </div>
+
+    <div class="currency-converter__result" data-role="result" aria-live="polite">
+        <div class="currency-converter__result-loading" data-role="loading" hidden>
+            <?= $escaper->escapeHtml(__('Fetching latest rate…')) ?>
+        </div>
+        <div class="currency-converter__result-body" data-role="result-body" hidden>
+            <p class="currency-converter__converted" data-role="converted"></p>
+            <p class="currency-converter__rate-line" data-role="rate-line"></p>
+            <p class="currency-converter__rate-date" data-role="rate-date"></p>
+        </div>
+    </div>
+
+    <div class="currency-converter__error" data-role="error" role="alert" hidden></div>
+
+    <div class="currency-converter__chart">
+        <h2 class="currency-converter__chart-title"><?= $escaper->escapeHtml(__('Historical rate')) ?></h2>
+        <div class="currency-converter__chart-wrap">
+            <canvas data-role="chart" height="320"></canvas>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,125 @@
+/**
+ * Copyright © Suhas. All rights reserved.
+ */
+
+.currency-converter {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.currency-converter__title {
+    margin-bottom: 10px;
+}
+
+.currency-converter__intro {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.currency-converter__form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.currency-converter__field {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 160px;
+}
+
+.currency-converter__label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.currency-converter__input,
+.currency-converter__select {
+    height: 42px;
+    padding: 0 10px;
+    font-size: 15px;
+}
+
+.currency-converter__swap {
+    flex: 0 0 auto;
+    height: 42px;
+    width: 42px;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    border-radius: 4px;
+    transition: background 0.15s ease;
+}
+
+.currency-converter__swap:hover:not(:disabled) {
+    background: #e0e0e0;
+}
+
+.currency-converter__swap:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.currency-converter__result {
+    min-height: 40px;
+    margin-bottom: 30px;
+}
+
+.currency-converter__result-loading {
+    color: #777;
+    font-style: italic;
+}
+
+.currency-converter__converted {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 5px;
+}
+
+.currency-converter__rate-line {
+    font-size: 16px;
+    color: #333;
+    margin: 0 0 3px;
+}
+
+.currency-converter__rate-date {
+    font-size: 13px;
+    color: #888;
+    margin: 0;
+}
+
+.currency-converter__error {
+    padding: 12px 15px;
+    margin-bottom: 25px;
+    background: #fae5e5;
+    border: 1px solid #e02b27;
+    color: #e02b27;
+    border-radius: 4px;
+}
+
+.currency-converter__chart-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.currency-converter__chart-wrap {
+    position: relative;
+    height: 340px;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .currency-converter__form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .currency-converter__swap {
+        align-self: center;
+        transform: rotate(90deg);
+    }
+}
