@@ -1,4 +1,4 @@
-# magentoCurrencyConverter
+# Magento Currency Converter
 
 A custom **Magento 2** module that adds a storefront **Currency Exchange Converter** page.
 Buyers can pick any currency supported by [Frankfurter](https://frankfurter.dev) as the
